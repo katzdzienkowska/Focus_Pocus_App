@@ -1,5 +1,5 @@
 import React from 'react';
-import Tasks from '.containers/Tasks';
+import Tasks from './containers/Tasks';
 import './App.css';
 
 function App() {
