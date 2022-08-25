@@ -79,7 +79,7 @@ const taskSlice = createSlice({
             state.edit = null;
         },
 
-        // enable od disable editing
+        // want or don't want to edit
         setEdit: (state: TaskState, action: PayloadAction<Task>) => {
             state.edit = action.payload;
         },
@@ -91,5 +91,5 @@ const taskSlice = createSlice({
     },
 });
 
-export const {addTask, deleteTask} = taskSlice.actions;
+export const {addTask, deleteTask, editTask, setEdit, unsetEdit} = taskSlice.actions;
 export default taskSlice.reducer;
