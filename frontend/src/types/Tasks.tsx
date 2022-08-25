@@ -16,4 +16,5 @@ export type TaskState = {
     todo: Task [];
     doing: Task[];
     done: Task[];
-}
+    edit: Task | null;
+};
