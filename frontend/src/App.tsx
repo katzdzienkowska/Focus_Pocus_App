@@ -1,4 +1,3 @@
-import React from 'react';
 import Tasks from './containers/Tasks';
 import Header from './components/Header';
 import Footer from './components/Footer';

@@ -3,7 +3,7 @@ import React from 'react';
 function Footer() {
 
     return(
-        <p>Focus Pocus App by Kat Zdzienkowska</p>
+        <footer>Focus Pocus App by Kat Zdzienkowska</footer>
     );
 };
 
