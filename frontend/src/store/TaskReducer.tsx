@@ -59,7 +59,7 @@ const taskSlice = createSlice({
         deleteTask: (state: TaskState, {payload: {id, status}} : PayloadAction<Task>) => {
             const byStatus = columnOfTasksByStatus(status, state);
             const task = byStatus.find((task) => task.id === id);
-            task && byStatus?.splice(state.todo.indexOf(task), 1);
+            task && byStatus.splice(state.todo.indexOf(task), 1);
         },
 
         // edit task by id
