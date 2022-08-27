@@ -20,7 +20,7 @@ export const deleteTask = (id) => {
     });
 };
 
-export const updateTask= (task) => {
+export const updateTask = (task) => {
     return fetch(baseURL + task.id, {
         method: 'PUT',
         body: JSON.stringify(task),

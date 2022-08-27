@@ -1,4 +1,5 @@
 import React from 'react';
+import { updateTask } from '../service/FocusPocusService';
 import Task from './Task';
 
 const TaskList = ({tasks, removeTask}) => {

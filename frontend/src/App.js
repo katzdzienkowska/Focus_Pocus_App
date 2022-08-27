@@ -1,10 +1,16 @@
 import React from 'react';
+import Header from './components/Header';
+import Footer from './components/Footer';
 import FocusPocus from './containers/FocusPocus';
 
-function App() {
+const App = () => {
 
   return (
-    <FocusPocus />
+    <main>
+      <Header />
+      <FocusPocus />
+      <Footer />
+    </main>
   );
 }
 
