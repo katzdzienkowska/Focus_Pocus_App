@@ -18,13 +18,13 @@ public class DataLoader implements ApplicationRunner {
 
     public void run(ApplicationArguments args){
 
-        Task task1 = new Task("read a book", "#ffffff", false);
+        Task task1 = new Task("Read a book", "Low", false);
         taskRepository.save(task1);
 
-        Task task2 = new Task("walk the dog", "#ffffff", false);
+        Task task2 = new Task("Walk the dog", "High", false);
         taskRepository.save(task2);
 
-        Task task3 = new Task("do the laundry", "#ffffff", false);
+        Task task3 = new Task("Do the laundry", "Medium", false);
         taskRepository.save(task3);
 
     }
