@@ -1,5 +1,5 @@
 import React from 'react';
-import productivity_girl from '../images/header.jpeg';
+import productivity_girl from '../assets/header.jpeg';
 
 const Header = () => {
 
