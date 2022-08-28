@@ -1,11 +1,10 @@
 import React from 'react';
-import { updateTask } from '../service/FocusPocusService';
 import Task from './Task';
 
-const TaskList = ({tasks, removeTask}) => {
+const TaskList = ({tasks, removeTask, editTask}) => {
 
   const taskNodes = tasks.map((task) => {
-    return <Task key={task.id} task={task} removeTask={removeTask}/>
+    return <Task key={task.id} task={task} editTask={editTask} removeTask={removeTask}/>
   });
 
   return (

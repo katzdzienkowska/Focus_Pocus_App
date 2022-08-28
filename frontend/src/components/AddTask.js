@@ -5,37 +5,28 @@ const AddTask = ({addTask}) => {
   const [text, setText] = useState('');
   const [priority, setPriority] = useState('None');
 
+  // const [isEditing, setIsEditing] = useState(false);
+  // const [currentTask, setCurrentTask] = useState({});
+
   const handleTextChange = (e) => setText(e.target.value);
   const handlePriorityChange = (e) => setPriority(e.target.value);
+
+  // const handleEditInputChange = (e) => {
+  //   setCurrentTask({...currentTask, text: e.target.value, priority: e.target.value});
+  //   console.log(currentTask);
+  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     addTask({
-      text: text,
-      priority: priority,
+      text,
+      priority,
       complete: false
     })
     setText('');
     setPriority('None');
-  }
+  };
 
-  // const onSubmit = (e) => {
-  //   e.preventDefault();
-  //   postTask(newTask)
-  //   .then((data) => {
-  //     AddTask(data);
-  //   })
-  //   setNewTask({
-  //     text: '',
-  //     priority: '',
-  //   });
-  // };
-
-  // const onChange = (e) => {
-  //   const newTaskData = {...newTask}
-  //   newTaskData[e.target.name] = e.target.value;
-  //   setNewTask(newTaskData);
-  // };
 
   return (
     <form onSubmit={handleSubmit}>
