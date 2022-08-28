@@ -1,14 +1,9 @@
 import React from 'react';
-import {deleteTask} from '../service/FocusPocusService';
 
 const Task = ({task, removeTask}) => {
 
-  console.log(task);
   const handleDelete = () => {
-    deleteTask(task.id)
-    .then(() => {
-      removeTask(task.id);
-    });
+    removeTask(task.id)
   };
 
   return (

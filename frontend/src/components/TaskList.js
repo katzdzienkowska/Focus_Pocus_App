@@ -10,6 +10,7 @@ const TaskList = ({tasks, removeTask}) => {
 
   return (
     <div>
+      <h2>My tasks:</h2>
       {taskNodes}
     </div>
   );

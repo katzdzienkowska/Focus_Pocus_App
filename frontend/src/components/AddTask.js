@@ -1,38 +1,62 @@
 import React, {useState} from 'react';
-import {postTask} from '../service/FocusPocusService';
 
-const AddTask = ({AddTask}) => {
+const AddTask = ({addTask}) => {
 
-  const [newTask, setNewTask] = useState({
-    text: '',
-    priority: '#ffffff',
-    complete: false,
-  });
+  const [text, setText] = useState('');
+  const [priority, setPriority] = useState('None');
 
-  const onSubmit = (e) => {
+  const handleTextChange = (e) => setText(e.target.value);
+  const handlePriorityChange = (e) => setPriority(e.target.value);
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-    postTask(newTask)
-    .then((data) => {
-      AddTask(data);
+    addTask({
+      text: text,
+      priority: priority,
+      complete: false
     })
-    setNewTask({
-      text: '',
-      priority: '',
-    });
-  };
+    setText('');
+    setPriority('None');
+  }
 
-  const onChange = (e) => {
-    const newTaskData = {...newTask}
-    newTaskData[e.target.name] = e.target.value;
-    setNewTask(newTaskData);
-  };
+  // const onSubmit = (e) => {
+  //   e.preventDefault();
+  //   postTask(newTask)
+  //   .then((data) => {
+  //     AddTask(data);
+  //   })
+  //   setNewTask({
+  //     text: '',
+  //     priority: '',
+  //   });
+  // };
+
+  // const onChange = (e) => {
+  //   const newTaskData = {...newTask}
+  //   newTaskData[e.target.name] = e.target.value;
+  //   setNewTask(newTaskData);
+  // };
 
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={handleSubmit}>
+
+      <h1>Add a new task:</h1>
 
       <label htmlFor='text'>Add text:</label>
-      <input onChange={onChange} type='text' id='text' name='text' placeholder='Add text here' value={newTask.text} required autoFocus/>
-      <input type='submit' value='Add task'/>
+      <input type='text' id='text' name='text' placeholder='Add text here' value={text} required autoFocus autoComplete='off' onChange={handleTextChange} />
+
+      <h3>Priority:</h3>
+      <label htmlFor='none'>None</label>
+      <input type='radio' name='priority' id='none' checked={priority === 'None'} value='None' onChange={handlePriorityChange}></input>
+      <label htmlFor='low'>Low</label>
+      <input type='radio' name='priority' id='low' checked={priority === 'Low'} value='Low' onChange={handlePriorityChange}></input>
+      <label htmlFor='medium'>Medium</label>
+      <input type='radio' name='priority' id='medium' checked={priority === 'Medium'} value='Medium' onChange={handlePriorityChange}></input>
+      <label htmlFor='high'>High</label>
+      <input type='radio' name='priority' id='high' checked={priority === 'High'} value='High' onChange={handlePriorityChange}></input>
+
+      <input type='submit' name='submit' value='Add task'/>
+
     </form>
   );
 }
