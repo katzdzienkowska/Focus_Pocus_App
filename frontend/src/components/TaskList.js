@@ -1,15 +1,22 @@
 import React from 'react';
 import Task from './Task';
 
-const TaskList = ({removeTask, editTask, setFilter, filteredTasks}) => {
+const TaskList = ({ removeTask, editTask, setFilter, filteredTasks, setIsEditing, setCurrentTask }) => {
 
   const taskNodes = filteredTasks.map((task) => {
-    return <Task key={task.id} task={task} editTask={editTask} removeTask={removeTask}/>
+    return <Task
+      key={task.id}
+      task={task}
+      editTask={editTask}
+      removeTask={removeTask}
+      setIsEditing={setIsEditing}
+      setCurrentTask={setCurrentTask} />
   });
 
   const filterTasks = (filterValue) => {
     setFilter(filterValue)
-    };
+  };
+
 
   return (
     <div>
@@ -23,9 +30,9 @@ const TaskList = ({removeTask, editTask, setFilter, filteredTasks}) => {
         {taskNodes}
       </div>
       <div>
-          {filteredTasks.filter((task) => task.complete === false).length} 
-          <span> items left</span>
-        </div>
+        {filteredTasks.filter((task) => task.complete === false).length}
+        <span> tasks left</span>
+      </div>
     </div>
   );
 };

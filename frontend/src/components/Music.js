@@ -5,8 +5,8 @@ const Music = () => {
   return (
     <div>
       <iframe
-            width="560"
-            height="340"
+            width="420"
+            height="240"
             src='https://www.youtube.com/embed/jfKfPfyJRdk'
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

@@ -1,36 +1,39 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import PomodoroTimer from '../components/PomodoroTimer';
 import Music from '../components/Music';
 import AddTask from '../components/AddTask';
 import TaskList from '../components/TaskList';
-import {getTasks, postTask, updateTask, deleteTask} from '../service/FocusPocusService';
+import { getTasks, postTask, updateTask, deleteTask } from '../service/FocusPocusService';
 
 const FocusPocus = () => {
 
   const [tasks, setTasks] = useState([]);
   const [filter, setFilter] = useState('All');
   const [filteredTasks, setFilteredTasks] = useState([]);
+  const [isEditing, setIsEditing] = useState(false);
+  const [currentTask, setCurrentTask] = useState({});
 
   const createTask = (newTask) => {
     postTask(newTask)
-    .then(savedTask => setTasks([...tasks, savedTask]));
+      .then(savedTask => setTasks([...tasks, savedTask]));
   };
 
   const editTask = (updatedTask) => {
+    console.log(updatedTask)
     updateTask(updatedTask)
-    .then(() => {
-      const updatedTaskIndex = tasks.findIndex(task => task.id === updatedTask.id);
-      const updatedTasks = [...tasks];
-      updatedTasks[updatedTaskIndex] = updatedTask;
-      setTasks(updatedTasks);
-    });
+      .then(() => {
+        const updatedTaskIndex = tasks.findIndex(task => task.id === updatedTask.id);
+        const updatedTasks = [...tasks];
+        updatedTasks[updatedTaskIndex] = updatedTask;
+        setTasks(updatedTasks);
+      });
   };
 
   const removeTask = (taskIdToDelete) => {
     deleteTask(taskIdToDelete)
-    .then(() => {
-      setTasks(tasks.filter(task => task.id !== taskIdToDelete));
-    });
+      .then(() => {
+        setTasks(tasks.filter(task => task.id !== taskIdToDelete));
+      });
   };
 
   const filterTasks = () => {
@@ -49,13 +52,14 @@ const FocusPocus = () => {
 
   useEffect(() => {
     getTasks()
-    .then(tasks => setTasks(tasks));
+      .then(tasks => setTasks(tasks));
   }, []);
 
   useEffect(() => {
     filterTasks()
     // eslint-disable-next-line
-  }, [tasks, filter])
+  }, [tasks, filter]);
+
 
   return (
     <section>
@@ -66,11 +70,28 @@ const FocusPocus = () => {
         <Music />
       </div>
       <div>
-        <AddTask addTask={createTask}/>
-        {tasks.length ? <TaskList editTask={editTask} removeTask={removeTask} setFilter={setFilter} filteredTasks={filteredTasks}/> : <p>The list is empty!</p>}
+
+        <AddTask
+          addTask={createTask}
+          editTask={editTask}
+          isEditing={isEditing}
+          setIsEditing={setIsEditing}
+          currentTask={currentTask}
+          setCurrentTask={setCurrentTask} />
+
+        {tasks.length ?
+          <TaskList
+            editTask={editTask}
+            removeTask={removeTask}
+            setFilter={setFilter}
+            filteredTasks={filteredTasks}
+            setIsEditing={setIsEditing}
+            setCurrentTask={setCurrentTask} />
+          : <p>The list is empty!</p>}
+
       </div>
     </section>
   );
-}
+};
 
 export default FocusPocus;
