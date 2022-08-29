@@ -24,8 +24,17 @@ public class DataLoader implements ApplicationRunner {
         Task task2 = new Task("Walk the dog", "High", false);
         taskRepository.save(task2);
 
-        Task task3 = new Task("Do the laundry", "Medium", false);
+        Task task3 = new Task("Respond to emails", "Medium", false);
         taskRepository.save(task3);
+
+        Task task4 = new Task("Do grocery shopping", "Medium", true);
+        taskRepository.save(task4);
+
+        Task task5 = new Task("Bake a cake", "High", true);
+        taskRepository.save(task5);
+
+        Task task6 = new Task("Do the laundry", "None", false);
+        taskRepository.save(task6);
 
     }
 }
