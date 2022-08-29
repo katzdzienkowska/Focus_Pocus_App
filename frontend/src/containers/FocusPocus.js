@@ -62,15 +62,16 @@ const FocusPocus = () => {
   }, [tasks, filter]);
 
 
-  const handleDragEnd = (param) => {
-    const source = param.source.index;
-    const destination = param.destination?.index;
+  const handleDragEnd = (result) => {
+    const source = result.source.index;
+    const destination = result.destination?.index;
     if (destination) {
-      const reordered = [...filterTasks];
+      const reordered = [...filteredTasks];
       reordered.splice(destination, 0, reordered.splice(source, 1)[0]);
       setFilteredTasks(reordered);
-    }
-  }
+    };
+  };
+
 
   return (
     <section>

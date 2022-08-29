@@ -1,7 +1,7 @@
 import React from 'react';
 import { Draggable } from "react-beautiful-dnd";
 
-const Task = ({id, task, editTask, removeTask, setIsEditing, setCurrentTask, index }) => {
+const Task = ({task, editTask, removeTask, setIsEditing, setCurrentTask, index }) => {
 
 
   const handleDelete = () => {
@@ -25,8 +25,8 @@ const Task = ({id, task, editTask, removeTask, setIsEditing, setCurrentTask, ind
 
   return (
     <div>
-      <Draggable key={id} draggableId={'draggable-' + id} index={index}>
-        {(provided, snapshot) => (
+      <Draggable key={task.id} draggableId={task.id.toString()} index={index}>
+        {(provided) => (
           <li
           ref={provided.innerRef}
           {...provided.draggableProps}
