@@ -8,6 +8,8 @@ import {getTasks, postTask, updateTask, deleteTask} from '../service/FocusPocusS
 const FocusPocus = () => {
 
   const [tasks, setTasks] = useState([]);
+  const [filter, setFilter] = useState('All');
+  const [filteredTasks, setFilteredTasks] = useState([]);
 
   const createTask = (newTask) => {
     postTask(newTask)
@@ -16,22 +18,44 @@ const FocusPocus = () => {
 
   const editTask = (updatedTask) => {
     updateTask(updatedTask)
-    const updatedTaskIndex = tasks.findIndex(task => task.id === updatedTask.id);
-    const updatedTasks = [...tasks];
-    updatedTasks[updatedTaskIndex] = updatedTask;
-    setTasks(updatedTasks);
+    .then(() => {
+      const updatedTaskIndex = tasks.findIndex(task => task.id === updatedTask.id);
+      const updatedTasks = [...tasks];
+      updatedTasks[updatedTaskIndex] = updatedTask;
+      setTasks(updatedTasks);
+    });
   };
 
   const removeTask = (taskIdToDelete) => {
-    deleteTask(taskIdToDelete);
-    setTasks(tasks.filter(task => task.id !== taskIdToDelete));
+    deleteTask(taskIdToDelete)
+    .then(() => {
+      setTasks(tasks.filter(task => task.id !== taskIdToDelete));
+    });
   };
 
+  const filterTasks = () => {
+    switch (filter) {
+      case 'Completed':
+        setFilteredTasks(tasks.filter((task) => task.complete === true))
+        break;
+      case 'Active':
+        setFilteredTasks(tasks.filter((task) => task.complete === false))
+        break;
+      default:
+        setFilteredTasks(tasks)
+        break;
+    }
+  };
 
   useEffect(() => {
     getTasks()
-      .then(tasks => setTasks(tasks));
+    .then(tasks => setTasks(tasks));
   }, []);
+
+  useEffect(() => {
+    filterTasks()
+    // eslint-disable-next-line
+  }, [tasks, filter])
 
   return (
     <section>
@@ -43,7 +67,7 @@ const FocusPocus = () => {
       </div>
       <div>
         <AddTask addTask={createTask}/>
-        <TaskList tasks={tasks} editTask={editTask} removeTask={removeTask}/>
+        {tasks.length ? <TaskList editTask={editTask} removeTask={removeTask} setFilter={setFilter} filteredTasks={filteredTasks}/> : <p>The list is empty!</p>}
       </div>
     </section>
   );

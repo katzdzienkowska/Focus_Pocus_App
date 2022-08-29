@@ -12,8 +12,8 @@ const Task = ({task, editTask, removeTask}) => {
       text: task.text,
       priority: task.priority,
       complete: !task.complete
-    })
-  }
+    });
+  };
 
 
   return (
