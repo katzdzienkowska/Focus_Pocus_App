@@ -4,6 +4,7 @@ import Music from '../components/Music';
 import AddTask from '../components/AddTask';
 import TaskList from '../components/TaskList';
 import { getTasks, postTask, updateTask, deleteTask } from '../service/FocusPocusService';
+import { DragDropContext } from "react-beautiful-dnd";
 
 const FocusPocus = () => {
 
@@ -61,6 +62,16 @@ const FocusPocus = () => {
   }, [tasks, filter]);
 
 
+  const handleDragEnd = (param) => {
+    const source = param.source.index;
+    const destination = param.destination?.index;
+    if (destination) {
+      const reordered = [...filterTasks];
+      reordered.splice(destination, 0, reordered.splice(source, 1)[0]);
+      setFilteredTasks(reordered);
+    }
+  }
+
   return (
     <section>
       <div>
@@ -79,16 +90,17 @@ const FocusPocus = () => {
           currentTask={currentTask}
           setCurrentTask={setCurrentTask} />
 
-        {tasks.length ?
-          <TaskList
-            editTask={editTask}
-            removeTask={removeTask}
-            setFilter={setFilter}
-            filteredTasks={filteredTasks}
-            setIsEditing={setIsEditing}
-            setCurrentTask={setCurrentTask} />
-          : <p>The list is empty!</p>}
-
+        <DragDropContext onDragEnd={handleDragEnd}>
+          {tasks.length ?
+            <TaskList
+              editTask={editTask}
+              removeTask={removeTask}
+              setFilter={setFilter}
+              filteredTasks={filteredTasks}
+              setIsEditing={setIsEditing}
+              setCurrentTask={setCurrentTask} />
+            : <p>The list is empty!</p>}
+        </DragDropContext>
       </div>
     </section>
   );
