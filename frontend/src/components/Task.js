@@ -1,5 +1,9 @@
 import React from 'react';
 import { Draggable } from "react-beautiful-dnd";
+import {ImCheckboxChecked, ImCheckboxUnchecked} from "react-icons/im";
+import {FiEdit} from "react-icons/fi";
+import {RiDeleteBin2Line} from "react-icons/ri";
+import '../index.css';
 
 const Task = ({task, editTask, removeTask, setIsEditing, setCurrentTask, index }) => {
 
@@ -26,21 +30,24 @@ const Task = ({task, editTask, removeTask, setIsEditing, setCurrentTask, index }
   return (
     <div>
       <Draggable key={task.id} draggableId={task.id.toString()} index={index}>
-        {(provided) => (
+        {(provided, snapshot) => (
           <li
+          className={`task ${task.complete && 'task-completed'}`}
           ref={provided.innerRef}
           {...provided.draggableProps}
           {...provided.dragHandleProps}
+          style={{
+            ...provided.draggableProps.style,
+            boxShadow: snapshot.isDragging ? "0 0 5rem #666" : "none",
+            opacity: snapshot.isDragging
+              ? "1"
+              : provided.draggableProps.style.opacity}}
           >
-            <h1>{task.text}</h1>
-            <p>{task.priority}</p>
+            <p>{task.text}</p>
 
-            <p>{task.complete ?
-              <button onClick={handleComplete}>Completed</button>
-              : <button onClick={handleComplete}>Uncompleted</button>}</p>
-
-            <button onClick={() => handleEdit(task)}>Edit</button>
-            <button onClick={handleDelete}>Delete</button>
+            <button onClick={handleComplete}>{task.complete ? <ImCheckboxChecked/> : <ImCheckboxUnchecked/>}</button>
+            <button onClick={() => handleEdit(task)}><FiEdit/></button>
+            <button onClick={handleDelete}><RiDeleteBin2Line/></button>
           </li>
         )}
       </Draggable>

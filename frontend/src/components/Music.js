@@ -1,10 +1,14 @@
 import React from 'react';
+import '../index.css';
 
 const Music = () => {
 
   return (
-    <div>
+    <section>
+    <h1 className='module-header'>Background Lo-Fi</h1>
+
       <iframe
+            className='lofi'
             width="420"
             height="240"
             src='https://www.youtube.com/embed/jfKfPfyJRdk'
@@ -13,7 +17,7 @@ const Music = () => {
             allowFullScreen
             title="Embedded youtube"
           />
-    </div>
+    </section>
   );
 }
 

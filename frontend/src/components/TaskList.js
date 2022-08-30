@@ -1,18 +1,9 @@
 import React from 'react';
 import Task from './Task';
 import { Droppable } from "react-beautiful-dnd";
+import '../index.css';
 
-const TaskList = ({ removeTask, editTask, setFilter, filteredTasks, setIsEditing, setCurrentTask }) => {
-
-  // const taskNodes = filteredTasks.map((task) => {
-  //   return <Task
-  //     key={task.id}
-  //     task={task}
-  //     editTask={editTask}
-  //     removeTask={removeTask}
-  //     setIsEditing={setIsEditing}
-  //     setCurrentTask={setCurrentTask} />
-  // });
+const TaskList = ({ removeTask, editTask, filter, setFilter, filteredTasks, setIsEditing, setCurrentTask }) => {
 
   const filterTasks = (filterValue) => {
     setFilter(filterValue)
@@ -21,34 +12,53 @@ const TaskList = ({ removeTask, editTask, setFilter, filteredTasks, setIsEditing
 
   return (
     <div>
-      <div>
-        <button onClick={() => filterTasks('All')}>Show all tasks</button>
-        <button onClick={() => filterTasks('Active')}>Show active tasks</button>
-        <button onClick={() => filterTasks('Completed')}>Show completed tasks</button>
+
+      <div className='filter'>
+        <button 
+        className={filter === "All" ? "active" : ""} 
+        onClick={() => filterTasks('All')}>
+          All
+        </button>
+        <button 
+        className={filter === "Active" ? "active" : ""} 
+        onClick={() => filterTasks('Active')}>
+          Active
+        </button>
+        <button 
+        className={filter === "Completed" ? "active" : ""} 
+        onClick={() => filterTasks('Completed')}>
+          Completed
+        </button>
       </div>
-      <h2>My tasks:</h2>
-      <Droppable droppableId='droppable-1'>
+      
+      <Droppable droppableId='drop'>
         {(provided) => (
-        <ul ref={provided.innerRef} {...provided.droppableProps}>
-          {filteredTasks.map((task, i) => (
-            <Task
-            key={task.id}
-            task={task}
-            editTask={editTask}
-            removeTask={removeTask}
-            setIsEditing={setIsEditing}
-            setCurrentTask={setCurrentTask}
-            index={i}
-            {...task} />
-          ))}
+        <ul className='task-wrapper' 
+            ref={provided.innerRef} 
+            {...provided.droppableProps}
+            >
+            {filteredTasks.map((task, i) => (
+              <Task
+              key={task.id}
+              task={task}
+              editTask={editTask}
+              removeTask={removeTask}
+              setIsEditing={setIsEditing}
+              setCurrentTask={setCurrentTask}
+              index={i}
+              {...task} />
+            ))}
           {provided.placeholder}
         </ul>
       )}
       </Droppable>
-      <div>
+      
+      <div className='empty-list'>
+      <span>You have </span>
         {filteredTasks.filter((task) => task.complete === false).length}
-        <span> tasks left</span>
+        <span> tasks left to do</span>
       </div>
+    
     </div>
   );
 };

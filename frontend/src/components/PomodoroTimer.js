@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import bell from '../assets/bell.mp3';
+import '../index.css';
 
 const PomodoroTimer = () => {
 
@@ -93,35 +94,50 @@ const PomodoroTimer = () => {
     };
 
     return (
-        <div>
+        <section>
 
-            <div>
-                {timeType === 'work' ? `It's time to work! 👩🏻‍💻` : `Break time ☕️`}
+            <h1 className='module-header'>Pomodoro Timer</h1>
 
+            <div className='pomodoro-timer'>
                 <div>
-                    {formatTime(displayTime)}
-                </div>
-            </div>
+                    <div className='timer'>
+                        {formatTime(displayTime)}
+                    </div>
 
-            <button onClick={handlePlay}>{play? 'Pause' : 'Play'}</button>
-            <button onClick={handleReset}>Reset</button>
+                    <div className='timer-message'>
+                    {timeType === 'work' ? `It's time to work! 👩🏻‍💻` : `Break time ☕️`}
+                    </div>
 
-            <div>
-                Session Length
-                <button disabled={play} onClick={() => incrementSessionTime()}> + </button>
-                <div>
-                    {sessionTime}
                 </div>
-                <button disabled={play} onClick={() => decrementSessionTime()}> - </button>
-            </div>
 
-            <div>
-                Break Length
-                <button disabled={play} onClick={() => incrementBreakTime()}> + </button>
-                <div>
-                    {breakTime}
+                <div className='timer-buttons'>
+                    <button onClick={handlePlay}>{play? 'Pause' : 'Play'}</button>
+                    <button onClick={handleReset}>Reset</button>
                 </div>
-                <button disabled={play} onClick={() => decrementBreakTime()}> - </button>
+
+                <div className='timer-set'>
+                    <div className='timer-section'>
+                        <p>Session Length</p>
+                        <div className='set-buttons'>
+                            <button disabled={play} onClick={() => decrementSessionTime()}>-</button>
+                            <div>
+                                {sessionTime}
+                            </div>
+                            <button disabled={play} onClick={() => incrementSessionTime()}>+</button>
+                        </div>
+                    </div>
+
+                    <div className='timer-section'>
+                        <p>Break Length</p>
+                        <div className='set-buttons'>
+                            <button disabled={play} onClick={() => decrementBreakTime()}>-</button>
+                            <div>
+                                {breakTime}
+                            </div>
+                            <button disabled={play} onClick={() => incrementBreakTime()}>+</button>
+                        </div>
+                    </div>
+                </div>
 
             </div>
 
@@ -131,7 +147,7 @@ const PomodoroTimer = () => {
                 src={bell}
             />
 
-        </div>
+        </section>
     );
 };
 

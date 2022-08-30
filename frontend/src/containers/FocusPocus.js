@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import PomodoroTimer from '../components/PomodoroTimer';
 import Music from '../components/Music';
-import AddTask from '../components/AddTask';
+import AddTask from '../components/Form';
 import TaskList from '../components/TaskList';
 import { getTasks, postTask, updateTask, deleteTask } from '../service/FocusPocusService';
 import { DragDropContext } from "react-beautiful-dnd";
+import '../index.css';
 
 const FocusPocus = () => {
 
@@ -74,14 +75,16 @@ const FocusPocus = () => {
 
 
   return (
-    <section>
-      <div>
-        <PomodoroTimer />
+    <section className='main-container'>
+      <div className='sub-container'>
+        <div className='pomodoro-module'>
+          <PomodoroTimer />
+        </div>
+        <div className='music-module'>
+          <Music />
+        </div>
       </div>
-      <div>
-        <Music />
-      </div>
-      <div>
+      <div className='task-module'>
 
         <AddTask
           addTask={createTask}
@@ -96,11 +99,12 @@ const FocusPocus = () => {
             <TaskList
               editTask={editTask}
               removeTask={removeTask}
+              filter={filter}
               setFilter={setFilter}
               filteredTasks={filteredTasks}
               setIsEditing={setIsEditing}
               setCurrentTask={setCurrentTask} />
-            : <p>The list is empty!</p>}
+            : <p className='empty-list'>The list is empty!</p>}
         </DragDropContext>
       </div>
     </section>
