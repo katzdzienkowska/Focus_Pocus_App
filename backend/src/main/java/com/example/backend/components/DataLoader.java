@@ -33,7 +33,7 @@ public class DataLoader implements ApplicationRunner {
         Task task5 = new Task("Bake a cake", "High", true);
         taskRepository.save(task5);
 
-        Task task6 = new Task("Do the laundry", "None", false);
+        Task task6 = new Task("Do the laundry", "Low", false);
         taskRepository.save(task6);
 
     }
