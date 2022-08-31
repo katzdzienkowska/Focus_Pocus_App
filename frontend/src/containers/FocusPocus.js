@@ -5,12 +5,12 @@ import AddTask from '../components/Form';
 import TaskList from '../components/TaskList';
 import { getTasks, postTask, updateTask, deleteTask } from '../service/FocusPocusService';
 import { DragDropContext } from "react-beautiful-dnd";
-import {ThemeContext} from '../components/ThemeContext';
+import { ThemeContext } from '../components/ThemeContext';
 import '../index.css';
 
 const FocusPocus = () => {
 
-  const {theme} = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
 
   const [tasks, setTasks] = useState([]);
   const [filter, setFilter] = useState('All');
@@ -65,7 +65,6 @@ const FocusPocus = () => {
     // eslint-disable-next-line
   }, [tasks, filter]);
 
-
   const handleDragEnd = (result) => {
     const source = result.source.index;
     const destination = result.destination?.index;
@@ -78,16 +77,16 @@ const FocusPocus = () => {
 
 
   return (
-    <section className={theme ? 'main-container-light' : 'main-container-dark'}>
+    <section className={theme ? 'main-container-dark' : 'main-container-light'}>
       <div className='sub-container'>
-        <div className='pomodoro-module'>
+        <div className={theme ? 'activity-module-dark' : 'activity-module-light'}>
           <PomodoroTimer />
         </div>
-        <div className='music-module'>
+        <div className={theme ? 'activity-module-dark' : 'activity-module-light'}>
           <Music />
         </div>
       </div>
-      <div className='task-module'>
+      <div className={theme ? 'task-module-dark' : 'task-module-light'}>
 
         <AddTask
           addTask={createTask}

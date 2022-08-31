@@ -26,6 +26,7 @@
     transform: translateY(30%) rotateZ(360deg);
     transition: all 1s ease-out;
 }
+
 .button-light-mode {
     opacity: 1;
     transform: translateY(0) rotateZ(0deg);
@@ -36,6 +37,7 @@
     opacity: 1;
     transform: translateY(30%) rotateZ(360deg);
 }
+
 .button-dark-mode {
     opacity: 1;
     transform: translateY(0%) rotateZ(0deg);

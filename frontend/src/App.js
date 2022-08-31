@@ -16,6 +16,6 @@ const App = () => {
       </ThemeContextProvider>
     </main>
   );
-}
+};
 
 export default App;

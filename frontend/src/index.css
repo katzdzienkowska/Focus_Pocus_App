@@ -3,22 +3,17 @@
 
 :root {
 
-   /* light theme */
-	--bg-color-l: rgb(173, 222, 251);
-	--alt-bg-color: #0000004d;
-	--font-color-l: #ffffff;
-	--alt-font-color: #222222;
-	--primary-color: rgb(246, 148, 143);
-	--secondary-color: rgb(242, 115, 109);
-  --module-header-color: rgb(45, 32, 179);
+  /* light theme */
+  --bg-color-l: #ffffff;
+  --alt-bg-color-l: #4785e7;
+  --font-color-l: #ffffff;
+  --module-header-color-l: rgb(45, 32, 179);
 
- /* dark theme */
-	--bg-color-d: rgb(74, 62, 206);
-	--alt-bg-color-d: #0000004d;
-	--font-color: #ffffff;
-	--alt-font-color: #222222;
-	--primary-color: #008e9f;
-	--secondary-color: #00e4ff;
+  /* dark theme */
+  --bg-color-d: rgb(74, 62, 206);
+  --alt-bg-color-d: #0000004d;
+  --font-color-d: #ffffff;
+  --module-header-color-d: rgb(242, 115, 109);
 }
 
 * {
@@ -29,8 +24,6 @@
 
 body {
   min-height: 100vh;
-  /* background: var(--bg-color);
-  color: var(--font-color); */
   font-family: 'Noto Serif Tamil', serif;
   position: relative;
   font-size: 100%;
@@ -52,23 +45,17 @@ header {
   flex-direction: column;
 }
 
-#header-t > h1 {
+#header-t>h1 {
   font-family: 'Kirang Haerang', cursive;
   font-size: 5.5rem;
   color: rgb(45, 32, 179);
 }
 
-#header-t > p {
+#header-t>p {
   color: rgb(45, 32, 179);
   font-size: 22px;
   text-align: center;
 }
-
-/* .mode-toggle {
-  position: absolute;
-  display: flex;
-  justify-content: flex-end;
-} */
 
 /* footer styling  */
 
@@ -80,9 +67,9 @@ footer {
   width: 100%;
 }
 
-footer > p {
+footer>p {
   font-size: 15px;
-  color: var(--module-header-color);
+  color: rgb(45, 32, 179);
 }
 
 /* modules styling */
@@ -117,46 +104,65 @@ footer > p {
   gap: 20px;
 }
 
-.pomodoro-module {
-  width: 100%;
-  max-width: 600px;
-  padding: 30px;
-  background: var(--alt-bg-color);
-  border-radius: 20px;
-  text-align: center;
-  box-shadow: 0 0 20px 0px #00000045;
-}
-.music-module {
-  width: 100%;
-  max-width: 600px;
-  padding: 30px;
-  background: var(--alt-bg-color);
-  border-radius: 20px;
-  text-align: center;
-  box-shadow: 0 0 20px 0px #00000045;
-}
-.task-module {
+.task-module-light {
   width: 100%;
   max-width: 600px;
   padding: 10px;
-  background: var(--alt-bg-color);
+  background: var(--alt-bg-color-l);
   border-radius: 20px;
   text-align: center;
   box-shadow: 0 0 20px 0px #00000045;
 }
 
-.module-header {
+.task-module-dark {
+  width: 100%;
+  max-width: 600px;
+  padding: 10px;
+  background: var(--alt-bg-color-d);
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 0 20px 0px #00000045;
+}
+
+.activity-module-light {
+  width: 100%;
+  max-width: 600px;
+  padding: 30px;
+  background: var(--alt-bg-color-l);
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 0 20px 0px #00000045;
+}
+
+.activity-module-dark {
+  width: 100%;
+  max-width: 600px;
+  padding: 30px;
+  background: var(--alt-bg-color-d);
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 0 20px 0px #00000045;
+}
+
+.module-header-light {
   font-family: 'Kirang Haerang', cursive;
   font-size: 4rem;
   color: rgb(45, 32, 179);
-  margin-bottom: 30px;
+  margin-bottom: 25px;
+}
+
+.module-header-dark {
+  font-family: 'Kirang Haerang', cursive;
+  font-size: 4rem;
+  color: rgb(242, 115, 109);
+  margin-bottom: 25px;
 }
 
 /* task list styling  */
 
 .form-general {
   margin-top: 20px;
-  margin-bottom: 50px;
+  margin-bottom: 60px;
 }
 
 .form {
@@ -183,7 +189,7 @@ footer > p {
 .priorities {
   display: flex;
   flex-direction: row;
-  gap:15px;
+  gap: 15px;
 }
 
 .select-priority {
@@ -213,16 +219,17 @@ footer > p {
 
 button {
   cursor: pointer;
-  background-color: var(--primary-color);
+  background-color: #84a59d;
   padding: 10px 30px;
   border-radius: 10px;
   border: none;
   font-size: 0.9rem;
   font-weight: 500;
   font-family: inherit;
-  color: var(--font-color);
+  color: #ffffff;
   transition: all 0.3s ease;
 }
+
 button:hover {
   opacity: 0.7;
 }
@@ -236,7 +243,7 @@ button:hover {
 }
 
 .filter button.active {
-  background-color: var(--secondary-color);
+  background-color: #608d83;
   color: #333;
 }
 
@@ -246,13 +253,12 @@ button:hover {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  color: var(--font-color);
+  color: #ffffff;
   max-height: 400px;
   overflow-y: auto;
 }
 
 .task {
-  /* background-color: rgb(246, 148, 143); */
   padding: 4px 20px 5px 30px;
   border-radius: 10px;
   display: flex;
@@ -263,15 +269,15 @@ button:hover {
 }
 
 #low-priority {
-  background-color: rgb(235, 221, 111);
+  background-color: #f5be65;
 }
 
 #high-priority {
-  background-color: rgb(230, 56, 25);
+  background-color: #ec5a47;
 }
 
 #medium-priority {
-  background-color: rgb(50, 209, 114);
+  background-color: #f09448;
 }
 
 .task p {
@@ -279,9 +285,10 @@ button:hover {
   text-transform: capitalize;
   flex: 1;
 }
+
 .task button {
   background-color: transparent;
-  color: var(--alt-font-color);
+  color: #ffffff;
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -293,15 +300,17 @@ button:hover {
   justify-content: center;
   transition: 0.7s;
 }
+
 .task button:hover {
-  color: var(--primary-color);
-  background-color: var(--alt-font-color);
+  background-color: #0000004d;
   opacity: 0.85;
   border-radius: 10px;
 }
+
 .task-wrapper .task-completed {
   opacity: 0.5;
 }
+
 .task-wrapper .task-completed p {
   text-decoration: line-through;
   font-style: italic;
@@ -328,14 +337,14 @@ button:hover {
 }
 
 .timer {
-  font-size: 3.2rem;
+  font-size: 3.7rem;
   margin-bottom: 40px;
 }
 
 .timer-message {
   margin-top: 15px;
   margin-bottom: 15px;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
 }
 
 .timer-buttons {
@@ -358,7 +367,7 @@ button:hover {
 }
 
 .timer-section p {
-  font-size: 1.1rem
+  font-size: 1.rem
 }
 
 .set-buttons {
@@ -371,14 +380,14 @@ button:hover {
 
 .set-buttons button {
   cursor: pointer;
-  background-color: var(--primary-color);
+  background-color: #84a59d;
   padding: 10px 15px;
-  border-radius: 50px;
+  border-radius: 50%;
   border: none;
   font-size: 0.9rem;
   font-weight: 500;
   font-family: inherit;
-  color: var(--font-color);
+  color: #ffffff;
   transition: all 0.3s ease;
 }
 

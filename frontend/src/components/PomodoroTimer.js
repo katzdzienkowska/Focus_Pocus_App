@@ -1,8 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { ThemeContext } from '../components/ThemeContext';
 import bell from '../assets/bell.mp3';
 import '../index.css';
 
 const PomodoroTimer = () => {
+
+    const { theme } = useContext(ThemeContext);
 
     const [sessionTime, setSessionTime] = useState(25);
     const [breakTime, setBreakTime] = useState(5);
@@ -61,6 +64,7 @@ const PomodoroTimer = () => {
         setBreakTime(5);
         setSessionTime(25);
         setDisplayTime(25 * 60);
+        setTimeType('work');
     };
 
     const resetTimer = () => {
@@ -96,7 +100,7 @@ const PomodoroTimer = () => {
     return (
         <section>
 
-            <h1 className='module-header'>Pomodoro Timer</h1>
+            <h1 className={theme ? 'module-header-dark' : 'module-header-light'}>Pomodoro Timer</h1>
 
             <div className='pomodoro-timer'>
                 <div>
@@ -105,13 +109,13 @@ const PomodoroTimer = () => {
                     </div>
 
                     <div className='timer-message'>
-                    {timeType === 'work' ? `It's time to work! 👩🏻‍💻` : `Break time ☕️`}
+                        {timeType === 'work' ? `It's time to work! 🔥` : `Break time ☕️`}
                     </div>
 
                 </div>
 
                 <div className='timer-buttons'>
-                    <button onClick={handlePlay}>{play? 'Pause' : 'Play'}</button>
+                    <button onClick={handlePlay}>{play ? 'Pause' : 'Start'}</button>
                     <button onClick={handleReset}>Reset</button>
                 </div>
 

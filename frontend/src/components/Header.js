@@ -7,14 +7,21 @@ const Header = () => {
 
   return (
     <div>
+      
       <header>
-        <img src={productivity_girl} alt='productivity girl' width={280}/>
+        <img 
+        src={productivity_girl} 
+        alt='productivity girl' 
+        width={300} />
+        
         <div id='header-t'>
           <h1>Focus Pocus</h1>
-          <p>enhance your productivity</p>
+          <p>...and get things done!</p>
         </div>
-        <ThemeButton className='mode-toggle'/>
+        
+        <ThemeButton className='mode-toggle' />
       </header>
+    
     </div>
   );
 }
