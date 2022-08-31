@@ -33,7 +33,7 @@ A user can:
 
 <h3>Future Extensions:</h3>
 
-- Accessibility: a user can manage the app just by using the computer keyboard
+- Accessibility: an app can support keyboard control. All the interactable components would be highlighted so that user can recognise which element is currently active
 
 <br/>
 
