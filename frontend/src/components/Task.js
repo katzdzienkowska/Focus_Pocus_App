@@ -33,6 +33,7 @@ const Task = ({task, editTask, removeTask, setIsEditing, setCurrentTask, index }
         {(provided, snapshot) => (
           <li
           className={`task ${task.complete && 'task-completed'}`}
+          id={task.priority === 'Low' ? 'low-priority' : task.priority === 'High' ? 'high-priority' : 'medium-priority'}
           ref={provided.innerRef}
           {...provided.draggableProps}
           {...provided.dragHandleProps}

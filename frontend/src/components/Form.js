@@ -6,7 +6,7 @@ import '../index.css';
 const Form = ({ addTask, editTask, isEditing, setIsEditing, currentTask, setCurrentTask }) => {
 
   const [text, setText] = useState('');
-  const [priority, setPriority] = useState('None');
+  const [priority, setPriority] = useState('Medium');
 
 
   return (

@@ -18,7 +18,7 @@ const EditTask = ({ editTask, setIsEditing, currentTask, setCurrentTask, text, s
     editTask(currentTask)
     setIsEditing(false)
     setText('');
-    setPriority('None');
+    setPriority('Medium');
   };
 
 
@@ -31,8 +31,6 @@ const EditTask = ({ editTask, setIsEditing, currentTask, setCurrentTask, text, s
       <div className='select-priority'>
         <p>Priority:</p>
         <div className='priorities'>
-          <label htmlFor='none'>None</label>
-          <input type='radio' name='priority' id='none' checked={priority === 'None'} value='None' onChange={handleEditPriorityChange}></input>
           <label htmlFor='low'>Low</label>
           <input type='radio' name='priority' id='low' checked={priority === 'Low'} value='Low' onChange={handleEditPriorityChange}></input>
           <label htmlFor='medium'>Medium</label>

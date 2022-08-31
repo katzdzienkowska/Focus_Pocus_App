@@ -1,0 +1,42 @@
+.button-light-mode,
+.button-dark-mode {
+    position: absolute;
+    top: 75px;
+    right: 70px;
+    background-color: transparent;
+    font-size: 3.5rem;
+    width: fit-content;
+    height: fit-content;
+}
+
+#moon {
+    position: absolute;
+    inset: 0;
+    color: rgb(45, 32, 179);
+}
+
+#sun {
+    position: absolute;
+    inset: 0;
+    color: rgb(242, 115, 109);
+}
+
+.button-dark-mode {
+    opacity: 1;
+    transform: translateY(30%) rotateZ(360deg);
+    transition: all 1s ease-out;
+}
+.button-light-mode {
+    opacity: 1;
+    transform: translateY(0) rotateZ(0deg);
+    transition: all 1s ease-out;
+}
+
+.button-light-mode {
+    opacity: 1;
+    transform: translateY(30%) rotateZ(360deg);
+}
+.button-dark-mode {
+    opacity: 1;
+    transform: translateY(0%) rotateZ(0deg);
+}

@@ -31,13 +31,13 @@ const TaskList = ({ removeTask, editTask, filter, setFilter, filteredTasks, setI
         </button>
       </div>
       
-      <Droppable droppableId='drop'>
+      <Droppable droppableId='task'>
         {(provided) => (
         <ul className='task-wrapper' 
             ref={provided.innerRef} 
             {...provided.droppableProps}
             >
-            {filteredTasks.map((task, i) => (
+            {filteredTasks.map((task, index) => (
               <Task
               key={task.id}
               task={task}
@@ -45,7 +45,7 @@ const TaskList = ({ removeTask, editTask, filter, setFilter, filteredTasks, setI
               removeTask={removeTask}
               setIsEditing={setIsEditing}
               setCurrentTask={setCurrentTask}
-              index={i}
+              index={index}
               {...task} />
             ))}
           {provided.placeholder}

@@ -1,13 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import PomodoroTimer from '../components/PomodoroTimer';
 import Music from '../components/Music';
 import AddTask from '../components/Form';
 import TaskList from '../components/TaskList';
 import { getTasks, postTask, updateTask, deleteTask } from '../service/FocusPocusService';
 import { DragDropContext } from "react-beautiful-dnd";
+import {ThemeContext} from '../components/ThemeContext';
 import '../index.css';
 
 const FocusPocus = () => {
+
+  const {theme} = useContext(ThemeContext);
 
   const [tasks, setTasks] = useState([]);
   const [filter, setFilter] = useState('All');
@@ -75,7 +78,7 @@ const FocusPocus = () => {
 
 
   return (
-    <section className='main-container'>
+    <section className={theme ? 'main-container-light' : 'main-container-dark'}>
       <div className='sub-container'>
         <div className='pomodoro-module'>
           <PomodoroTimer />

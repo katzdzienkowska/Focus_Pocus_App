@@ -15,7 +15,7 @@ const AddTask = ({ addTask, text, setText, priority, setPriority }) => {
       complete: false
     })
     setText('');
-    setPriority('None');
+    setPriority('Medium');
   };
 
 
@@ -28,8 +28,6 @@ const AddTask = ({ addTask, text, setText, priority, setPriority }) => {
       <div className='select-priority'>
         <p>Select priority:</p>
         <div className='priorities'>
-          <label htmlFor='none'>None</label>
-          <input type='radio' name='priority' id='none' checked={priority === 'None'} value='None' onChange={handlePriorityChange}></input>
           <label htmlFor='low'>Low</label>
           <input type='radio' name='priority' id='low' checked={priority === 'Low'} value='Low' onChange={handlePriorityChange}></input>
           <label htmlFor='medium'>Medium</label>
