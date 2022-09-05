@@ -1,10 +1,10 @@
 <br/>
 
-# Focus Pocus - Full-Stack App: Java/Spring back-end and ReactJS front-end
+# Focus Pocus - Full-Stack App: Java/Spring-Boot and React.js
 
 **Project:** Solo Project built in the 14th week of the CodeClan Course.
 
-<p>Focus Pocus - A handy app that helps to focus and boost productivity, targeted at young individuals</p>
+<p>Focus Pocus - A web app that helps to focus and boost productivity, targeted at young individuals. The app consists of three modules: a to-do list, Pomodoro timer and embedded YouTube music video. Also, the user can toggle between the light and dark app mode.</p>
 
 <br/>
 
@@ -22,18 +22,18 @@ A user can:
 - Use a pomodoro timer to better manage the learning process
 - Start, pause or reset the pomodoro timer
 - Loop work and break sessions
-- Hear a bell once work or break session ends
+- Hear the bell once work or break session ends
 - Play relaxing music in the background
 
 <h3>Extensions:</h3>
 
 A user can:
 - Customise the length of work and break session
-- Toggle between light and dark app mode
+- Toggle between the light and dark app mode
 
 <h3>Future Extensions:</h3>
 
-- Accessibility: an app can support keyboard control. All the interactable components would be highlighted so that user can recognise which element is currently active
+- Accessibility: the app can support keyboard control. All the interactable components would be highlighted so that user can recognise which element is currently active
 
 <br/>
 

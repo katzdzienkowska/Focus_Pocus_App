@@ -37,7 +37,7 @@ const AddTask = ({ addTask, text, setText, priority, setPriority }) => {
         required 
         autoFocus 
         autoComplete='off' 
-        onChange={handleTextChange} 
+        onChange={handleTextChange}
         />
 
       <div className='select-priority'>
