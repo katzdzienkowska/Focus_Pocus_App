@@ -8,6 +8,12 @@
 
 <br/>
 
+## App Running:
+
+![screen-gif](./frontend/src/assets/focus_pocus_app.gif)
+
+<br/>
+
 ## Project Brief:
 
 <h3>MVP:</h3>
