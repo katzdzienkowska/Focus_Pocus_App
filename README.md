@@ -10,7 +10,7 @@
 
 ## App Running:
 
-![screen-gif](./frontend/src/assets/focus_pocus_app.gif)
+![screen-gif](./frontend/src/assets/focus_pocus.gif)
 
 <br/>
 
