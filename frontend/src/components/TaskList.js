@@ -15,16 +15,22 @@ const TaskList = ({ removeTask, editTask, filter, setFilter, filteredTasks, setI
 
       <div className='filter'>
         <button
+          id='all-tasks' 
+          aria-label='all-tasks'
           className={filter === "All" ? "active" : ""}
           onClick={() => filterTasks('All')}>
           All
         </button>
         <button
+          id='active-tasks' 
+          aria-label='active-tasks'
           className={filter === "Active" ? "active" : ""}
           onClick={() => filterTasks('Active')}>
           Active
         </button>
         <button
+          id='completed-tasks' 
+          aria-label='completed-tasks'
           className={filter === "Completed" ? "active" : ""}
           onClick={() => filterTasks('Completed')}>
           Completed

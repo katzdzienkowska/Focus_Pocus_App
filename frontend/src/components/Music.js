@@ -11,6 +11,7 @@ const Music = () => {
       <h1 className={theme ? 'module-header-dark' : 'module-header-light'}>Background Lo-Fi</h1>
 
       <iframe
+        name='lofiMusic'
         className='lofi'
         width="420"
         height="240"

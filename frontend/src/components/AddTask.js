@@ -88,7 +88,12 @@ const AddTask = ({ addTask, text, setText, priority, setPriority }) => {
         </div>
       </div>
 
-      <button type='submit'>Add task</button>
+      <button 
+        id='add-task'
+        aria-label='add-task' 
+        type='submit'>
+          Add task
+      </button>
 
     </form>
   );

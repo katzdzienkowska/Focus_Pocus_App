@@ -45,7 +45,7 @@ header {
   flex-direction: column;
 }
 
-#header-t>h1 {
+#header-t #app-name {
   font-family: 'Kirang Haerang', cursive;
   font-size: 5.5rem;
   color: rgb(45, 32, 179);

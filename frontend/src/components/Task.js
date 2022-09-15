@@ -28,7 +28,6 @@ const Task = ({ task, editTask, removeTask, setIsEditing, setCurrentTask, index 
 
 
   return (
-    <div>
       <Draggable key={task.id} draggableId={task.id.toString()} index={index}>
         {(provided, snapshot) => (
           <li
@@ -50,23 +49,28 @@ const Task = ({ task, editTask, removeTask, setIsEditing, setCurrentTask, index 
             <p>{task.text}</p>
 
             <button 
+              id='complete-task' 
+              aria-label='complete-task'
               onClick={handleComplete}>
               {task.complete ? <ImCheckboxChecked /> : <ImCheckboxUnchecked />}
             </button>
             
             <button 
+              id='edit-task' 
+              aria-label='edit-task'
               onClick={() => handleEdit(task)}>
               <FiEdit />
             </button>
             
             <button 
+              id='delete-task' 
+              aria-label='delete-task'
               onClick={handleDelete}>
               <RiDeleteBin2Line />
             </button>
           </li>
         )}
       </Draggable>
-    </div>
   );
 };
 

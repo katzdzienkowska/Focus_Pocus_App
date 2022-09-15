@@ -29,7 +29,7 @@ const EditTask = ({ editTask, setIsEditing, currentTask, setCurrentTask, text, s
       id='edit-label' 
       htmlFor='editTask'>
         Edit text:
-        </label>
+      </label>
       <input 
       type='text' 
       id='text' 
@@ -90,11 +90,15 @@ const EditTask = ({ editTask, setIsEditing, currentTask, setCurrentTask, text, s
       <div className='edit-buttons'>
        
         <button 
+          id='edit-task'
+          aria-label='edit-task'
           type='submit'>
           Update
         </button>
         
         <button 
+          id='cancel-edit'
+          aria-label='cancel-edit'
           onClick={() => setIsEditing(false)}>
           Cancel
         </button>

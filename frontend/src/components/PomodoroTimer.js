@@ -115,30 +115,30 @@ const PomodoroTimer = () => {
                 </div>
 
                 <div className='timer-buttons'>
-                    <button onClick={handlePlay}>{play ? 'Pause' : 'Start'}</button>
-                    <button onClick={handleReset}>Reset</button>
+                    <button id='play-pause' aria-label='playPauseTimer' onClick={handlePlay}>{play ? 'Pause' : 'Start'}</button>
+                    <button id='reset' aria-label='resetTimer' onClick={handleReset}>Reset</button>
                 </div>
 
                 <div className='timer-set'>
                     <div className='timer-section'>
                         <p>Session Length</p>
                         <div className='set-buttons'>
-                            <button disabled={play} onClick={() => decrementSessionTime()}>-</button>
+                            <button id='add-work-time' aria-label='add-work-time' disabled={play} onClick={() => decrementSessionTime()}>-</button>
                             <div>
                                 {sessionTime}
                             </div>
-                            <button disabled={play} onClick={() => incrementSessionTime()}>+</button>
+                            <button id='remove-work-time' aria-label='remove-work-time' disabled={play} onClick={() => incrementSessionTime()}>+</button>
                         </div>
                     </div>
 
                     <div className='timer-section'>
                         <p>Break Length</p>
                         <div className='set-buttons'>
-                            <button disabled={play} onClick={() => decrementBreakTime()}>-</button>
+                            <button id='add-break-time' aria-label='add-break-time' disabled={play} onClick={() => decrementBreakTime()}>-</button>
                             <div>
                                 {breakTime}
                             </div>
-                            <button disabled={play} onClick={() => incrementBreakTime()}>+</button>
+                            <button id='remove-break-time' aria-label='remove-break-time' disabled={play} onClick={() => incrementBreakTime()}>+</button>
                         </div>
                     </div>
                 </div>
